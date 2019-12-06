@@ -26,6 +26,8 @@ RUN git clone https://github.com/librenms/librenms.git && \
 RUN setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/ && \
     setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/ 
 
+WORKDIR /opt/librenms
+
 RUN su - librenms && \
     ./scripts/composer_wrapper.php install --no-dev && \
     exit 
