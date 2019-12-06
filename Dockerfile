@@ -9,7 +9,7 @@ ENV DB_PASS=librenms
 RUN apt install software-properties-common && \
     add-apt-repository universe && \
     apt-get update && \
-    apt install curl composer fping git graphviz imagemagick mariadb-client \
+    apt install -y curl composer fping git graphviz imagemagick mariadb-client \
     mariadb-server mtr-tiny nginx-full nmap php7.2-cli php7.2-curl php7.2-fpm \
     php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml \
     php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois && \
