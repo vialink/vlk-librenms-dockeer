@@ -6,7 +6,7 @@ ENV COMMUNITY_SNMP=public
 ENV DB_USER=librenms
 ENV DB_PASS=librenms
 
-RUN apt install software-properties-common && \
+RUN apt install -y software-properties-common && \
     add-apt-repository universe && \
     apt-get update && \
     apt install -y curl composer fping git graphviz imagemagick mariadb-client \
