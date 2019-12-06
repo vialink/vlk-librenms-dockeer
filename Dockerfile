@@ -33,7 +33,7 @@ RUN su - librenms && \
     exit 
 
 COPY executesql.sql /opt/librenms/ && \
-     snmp/snmpd.conf /etc/snmpd/
+     snmp/snmpd.conf /etc/snmp/
 
 RUN systemctl restart mysql && \
     mysql -uroot -p < executesql.sql 
