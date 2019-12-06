@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt install -y software-properties-common && \
     add-apt-repository universe && \
     apt-get update && \
-    apt install -y curl composer fping git graphviz imagemagick mariadb-client \
+    apt install -y curl acl composer fping git graphviz imagemagick mariadb-client \
     mariadb-server mtr-tiny nginx-full nmap php7.2-cli php7.2-curl php7.2-fpm \
     php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml \
     php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois && \
@@ -22,7 +22,7 @@ WORKDIR /opt
 RUN git clone https://github.com/librenms/librenms.git && \
     chown -R librenms:librenms /opt/librenms && \
     chmod 770 /opt/librenms
-    
+
 RUN setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/ && \
     setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/ 
 
