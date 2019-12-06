@@ -15,9 +15,11 @@ RUN apt-get update && \
     php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-snmp php7.2-xml \
     php7.2-zip python-memcache python-mysqldb rrdtool snmp snmpd whois && \
     useradd librenms -d /opt/librenms -M -r && \
-    usermod -a -G librenms www-data && \
-    cd /opt && \
-    git clone https://github.com/librenms/librenms.git && \
+    usermod -a -G librenms www-data
+
+WORKDIR /opt
+
+RUN git clone https://github.com/librenms/librenms.git && \
     chown -R librenms:librenms /opt/librenms && \
     chmod 770 /opt/librenms && \ 
     setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/ && \
