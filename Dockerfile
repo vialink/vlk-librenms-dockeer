@@ -46,4 +46,4 @@ COPY librenms/config.php /opt/librenms/
 
 COPY entrypoint.sh /opt/librenms/
 
-ENTRYPOINT ['entrypoint.sh']
+ENTRYPOINT ['/opt/librenms/entrypoint.sh']
