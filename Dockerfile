@@ -42,8 +42,8 @@ RUN rm /etc/nginx/sites-enabled/default && \
     cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms && \
     cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 
-COPY librenms/config.php /opt/librenms/
+COPY librenms/config.php /opt/librenms
 
-COPY entrypoint.sh /opt/librenms/
+COPY entrypoint.sh /opt/librenms
 
 ENTRYPOINT ['./entrypoint.sh']
