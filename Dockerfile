@@ -48,4 +48,4 @@ RUN rm /etc/nginx/sites-enabled/default && \
 
 COPY librenms/config.php /opt/librenms/
 
-ENTRYPOINT service mysql start && bash
+ENTRYPOINT service mysql restart && service nginx restart && zsh
