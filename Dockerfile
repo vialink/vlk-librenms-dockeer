@@ -36,11 +36,9 @@ COPY snmp/snmpd.conf /etc/snmp
 
 COPY executesql.sql /opt/librenms
 
-RUN rm /etc/nginx/sites-enabled/default && \
-    systemctl restart nginx && \    
+RUN rm /etc/nginx/sites-enabled/default && \    
     curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro && \ 
     chmod +x /usr/bin/distro && \
-    systemctl restart snmpd && \
     cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms && \
     cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 
