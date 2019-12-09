@@ -44,6 +44,4 @@ RUN rm /etc/nginx/sites-enabled/default && \
 
 COPY librenms/config.php /opt/librenms
 
-COPY entrypoint.sh /opt/librenms
-
-ENTRYPOINT ['./entrypoint.sh']
+ENTRYPOINT ['service mysql restart && mysql -uroot -p < executesql.sql && service nginx restart && service snmpd restart && zsh']
