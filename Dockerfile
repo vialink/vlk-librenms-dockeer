@@ -36,7 +36,7 @@ COPY snmp/snmpd.conf /etc/snmp
 
 COPY executesql.sql /opt/librenms
 
-RUN systemctl restart mysql && \
+RUN sevice mysql restart && \
     mysql -uroot -p < executesql.sql 
 
 RUN rm /etc/nginx/sites-enabled/default && \
