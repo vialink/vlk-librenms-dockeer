@@ -32,8 +32,9 @@ RUN su - librenms && \
     ./scripts/composer_wrapper.php install --no-dev && \
     exit 
 
-COPY executesql.sql /opt/librenms/ && \
-     snmp/snmpd.conf /etc/snmp/
+COPY snmp/snmpd.conf /etc/snmp
+
+COPY executesql.sql /opt/librenms
 
 RUN systemctl restart mysql && \
     mysql -uroot -p < executesql.sql 
