@@ -36,8 +36,6 @@ COPY snmp/snmpd.conf /etc/snmp
 
 COPY executesql.sql /opt/librenms
 
-RUN mysql -uroot -p < executesql.sql 
-
 RUN rm /etc/nginx/sites-enabled/default && \
     systemctl restart nginx && \    
     curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro && \ 
@@ -48,4 +46,4 @@ RUN rm /etc/nginx/sites-enabled/default && \
 
 COPY librenms/config.php /opt/librenms/
 
-ENTRYPOINT service mysql restart && service nginx restart && zsh
+ENTRYPOINT ['entrypoint.sh']
