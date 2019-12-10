@@ -7,3 +7,5 @@ service nginx restart
 service snmpd restart
 
 zsh
+
+exec "$@"

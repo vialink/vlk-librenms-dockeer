@@ -1,6 +1,8 @@
 FROM vialink/vlk-ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 
+COPY docker-entrypoint.sh /usr/local/bin/
+
 ENV LIBRENMS_DOMAIN=librenms.domain.com
 ENV COMMUNITY_SNMP=public
 ENV DB_USER=librenms
@@ -44,4 +46,4 @@ RUN rm /etc/nginx/sites-enabled/default && \
 
 COPY librenms/config.php /opt/librenms
 
-CMD ['service mysql restart && mysql -uroot -p < executesql.sql && service nginx restart && service snmpd restart && zsh']
+ENTRYPOINT ["docker-entrypoint.sh"]
