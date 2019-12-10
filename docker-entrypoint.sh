@@ -8,4 +8,3 @@ service snmpd restart
 
 zsh
 
-exec "$@"
