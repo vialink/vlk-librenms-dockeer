@@ -1,7 +1,7 @@
 FROM vialink/vlk-ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin
 
 ENV LIBRENMS_DOMAIN=librenms.domain.com
 ENV COMMUNITY_SNMP=public
@@ -47,3 +47,5 @@ RUN rm /etc/nginx/sites-enabled/default && \
 COPY librenms/config.php /opt/librenms
 
 ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD [ "/bin/zsh" ]
