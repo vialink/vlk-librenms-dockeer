@@ -48,5 +48,11 @@ COPY librenms/config.php /opt/librenms
 
 ENTRYPOINT ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
 
+EXPOSE 80
+
+EXPOSE 443
+
+EXPOSE 514
+
 
 CMD [ "/bin/bash" ]
