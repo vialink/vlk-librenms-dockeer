@@ -1,6 +1,8 @@
 FROM vialink/vlk-ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 
+VOLUME [ "/opt/librenms" ]
+
 COPY docker-entrypoint.sh /usr/local/bin
 
 ENV LIBRENMS_DOMAIN=librenms.domain.com
