@@ -52,7 +52,7 @@ EXPOSE 80
 
 EXPOSE 443
 
-EXPOSE 514
+EXPOSE 514/udp
 
 
 CMD [ "/bin/bash" ]
